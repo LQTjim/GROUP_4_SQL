@@ -416,12 +416,11 @@ MODIFY
 --
 -- AUTO_INCREMENT for table `size`
 --
-ALTER TABLE
-    `size`
-MODIFY
-    `sid` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 5;
-
+-- ALTER TABLE
+--     `size`
+-- MODIFY
+--     `sid` int(11) NOT NULL AUTO_INCREMENT,
+--     AUTO_INCREMENT = 5;
 --
 -- Constraints for dumped tables
 --
