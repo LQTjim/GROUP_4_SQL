@@ -1,4 +1,4 @@
---- 會員查表 join sex level role
+--- 會員查表 join sex level role :
 SELECT
     m.`sid`,
     m.`email`,
@@ -11,7 +11,12 @@ SELECT
     m.`hero_icon`,
     mr.role,
     m.`created_at`,
-    m.`active`
+    CASE
+        m.`active`
+        WHEN 1 THEN '已啟用'
+        WHEN 0 THEN '未啟用'
+        ELSE '未知啟用狀態'
+    END AS `active`
 FROM
     `member` m
     JOIN `member_sex` ms ON m.sex_sid = ms.sid
