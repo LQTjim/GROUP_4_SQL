@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost:3306
--- 產生時間： 2023-05-12 10:40:13
+-- 產生時間： 2023-05-12 15:32:05
 -- 伺服器版本： 5.7.24
 -- PHP 版本： 8.0.1
 
@@ -55,7 +55,7 @@ CREATE TABLE `equipment_detail` (
   `price` int(11) NOT NULL,
   `stocks` int(19) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `added_time` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
   `color_id` int(19) NOT NULL,
   `size_id` int(19) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,7 +64,7 @@ CREATE TABLE `equipment_detail` (
 -- 傾印資料表的資料 `equipment_detail`
 --
 
-INSERT INTO `equipment_detail` (`sid`, `equipment_id`, `price`, `stocks`, `picture`, `added_time`, `color_id`, `size_id`) VALUES
+INSERT INTO `equipment_detail` (`sid`, `equipment_id`, `price`, `stocks`, `picture`, `created_at`, `color_id`, `size_id`) VALUES
 (1, 1, 349, 100, 'xxx.jpg', '2023-05-11 17:17:42', 5, 5),
 (2, 2, 999, 100, 'xxx.jpg', '2023-05-11 17:17:42', 1, 7);
 
@@ -182,7 +182,7 @@ CREATE TABLE `product_detail` (
   `price` int(19) NOT NULL,
   `stocks` int(19) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `added_data` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
   `color_id` int(19) NOT NULL,
   `size_id` int(19) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -191,7 +191,7 @@ CREATE TABLE `product_detail` (
 -- 傾印資料表的資料 `product_detail`
 --
 
-INSERT INTO `product_detail` (`sid`, `product_id`, `price`, `stocks`, `picture`, `added_data`, `color_id`, `size_id`) VALUES
+INSERT INTO `product_detail` (`sid`, `product_id`, `price`, `stocks`, `picture`, `created_at`, `color_id`, `size_id`) VALUES
 (1, 1, 500, 100, 'xxx.jpg', '2023-05-11 15:21:13', 3, 3),
 (2, 4, 1200, 100, 'xxx.jpg', '2023-05-11 15:21:13', 7, 2),
 (3, 5, 700, 100, 'xxx.jpg', '2023-05-11 15:21:13', 1, 2);
@@ -205,7 +205,7 @@ INSERT INTO `product_detail` (`sid`, `product_id`, `price`, `stocks`, `picture`,
 CREATE TABLE `product_name` (
   `sid` int(19) NOT NULL,
   `product_name` varchar(255) NOT NULL,
-  `product_description` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `category_id` int(19) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -213,7 +213,7 @@ CREATE TABLE `product_name` (
 -- 傾印資料表的資料 `product_name`
 --
 
-INSERT INTO `product_name` (`sid`, `product_name`, `product_description`, `category_id`) VALUES
+INSERT INTO `product_name` (`sid`, `product_name`, `description`, `category_id`) VALUES
 (1, '男款透氣快乾跑步背心\r\n', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
 (2, '男款初階健身短袖上衣', '主要布料 100% 聚酯纖維', 4),
 (3, '男款登山健行2000mm防水外套', '主要布料100%聚酯纖維塗層100%聚氨酯纖維（PU）', 5),
@@ -221,7 +221,65 @@ INSERT INTO `product_name` (`sid`, `product_name`, `product_description`, `categ
 (5, '男款初階健身短褲\r\n', '主要布料100%聚酯纖維', 6),
 (6, '男款透氣穩定跑步緊身長褲RunDry', '主要布料87%聚酯纖維,13%彈性纖維', 6),
 (7, '男款輕量緩震跑鞋', '鞋底70%乙烯醋酸乙烯共聚物（EVA）,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底／鞋墊100%聚酯纖維', 8),
-(8, '男款輕量緩震健行鞋(懶人鞋)\r\n', '鞋底 50%乙烯醋酸乙烯共聚物（EVA）,50%乾天然橡膠鞋面100%聚酯纖維內底／鞋墊100%聚酯纖維', 8);
+(8, '男款輕量緩震健行鞋(懶人鞋)\r\n', '鞋底 50%乙烯醋酸乙烯共聚物（EVA）,50%乾天然橡膠鞋面100%聚酯纖維內底／鞋墊100%聚酯纖維', 8),
+(10, '男款籃球背心,上衣/NBA快艇隊', '主要布料 100% 聚酯纖維', 4),
+(13, '男款健身背心', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(14, '男款彈性棉質背心', '鞋底 50%乙烯醋酸乙烯共聚物EVA,50%乾天然橡膠鞋面100%聚酯纖維內底鞋墊100%聚酯纖維', 4),
+(16, '男款透氣快乾跑步背心RUNDRY', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(18, '拳擊連帽背心', '主要布料 100% 聚酯纖維', 4),
+(21, '男款初階健身背心', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(22, '男款輕量自行車防風背心', '主要布料 100% 聚酯纖維', 4),
+(23, '男款輕量自行車防風背心', '主要布料 100% 聚酯纖維', 4),
+(25, '男款高階羽球吸濕排汗無袖上衣', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(26, '男款籃球背心,上衣/NBA快艇隊', '主要布料100%聚酯纖維', 4),
+(27, '男款中階純棉運動背心', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(28, '健身背心Stringer', '主要布料100%聚酯纖維', 4),
+(29, '超輕量成人排汗籃球背心B300', '主要布料100%聚酯纖維', 4),
+(30, '男款高階羽球吸濕排汗無袖上衣', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(31, '男款籃球雙面背心', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(32, '男款輕量保暖高爾夫羽絨背心', '主要布料100%聚酯纖維', 4),
+(33, '耐磨輕量釣魚背心', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(34, '男款透氣快乾跑步背心RUNDRY', '主要布料100%聚酯纖維', 8),
+(35, '男款籃球背心,上衣/NBA塞爾提克隊', '主要布料 100% 聚酯纖維', 4),
+(36, '男款籃球背心,上衣/NBA快艇隊', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(37, '男款透氣快乾跑步背心RUNDRY', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(38, '男款輕量保暖高爾夫羽絨背心', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(39, '男款輕量自行車防風背心', '主要布料100%聚酯纖維塗層100%聚氨酯纖維', 4),
+(40, '男款健身連帽背心', '主要布料100%聚酯纖維', 4),
+(41, '男款輕量保暖高爾夫羽絨背心', '主要布料100%聚酯纖維塗層100%聚氨酯纖維', 4),
+(42, '健身背心Stringer', '主要布料 100% 聚酯纖維', 4),
+(43, '男款透氣輕盈跑步背心', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(44, '男款籃球背心,上衣/NBA塞爾提克隊', '主要布料 100% 聚酯纖維', 4),
+(45, '男款初階健身背心', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(46, '超輕量成人排汗籃球背心B300', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(47, '男款籃球雙面背心', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(48, '男款彈性棉質背心', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(49, '男款中階純棉運動背心', '主要布料100%聚酯纖維', 4),
+(50, '拳擊連帽背心', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(51, '男款透氣輕盈跑步背心', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(52, '男款健身連帽背心', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(53, '男款防風跑步連帽背心外套RUNWIND', '主要布料 100% 聚酯纖維', 4),
+(54, '男款防風跑步連帽背心外套RUNWIND', '鞋底 50%乙烯醋酸乙烯共聚物EVA,50%乾天然橡膠鞋面100%聚酯纖維內底鞋墊100%聚酯纖維', 4),
+(55, '超輕量成人排汗籃球背心B300', '主要布料100%聚酯纖維', 4),
+(56, '男款登山健行多口袋快乾背心', '主要布料100%聚酯纖維', 4),
+(57, '男款籃球雙面背心', '主要布料100%聚酯纖維', 4),
+(58, '拳擊連帽背心', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(59, '男款登山健行多口袋快乾背心', '主要布料100%聚酯纖維', 4),
+(60, '男款籃球背心,上衣/NBA塞爾提克隊', '鞋底 50%乙烯醋酸乙烯共聚物EVA,50%乾天然橡膠鞋面100%聚酯纖維內底鞋墊100%聚酯纖維', 4),
+(61, '男款輕量自行車防風背心', '鞋底 50%乙烯醋酸乙烯共聚物EVA,50%乾天然橡膠鞋面100%聚酯纖維內底鞋墊100%聚酯纖維', 4),
+(62, '男款登山健行多口袋快乾背心', '主要布料 100% 聚酯纖維', 4),
+(63, '男款防潑水馬術背心', '主要布料 100% 聚酯纖維 背部布料 100% 聚酯纖維', 4),
+(64, '拳擊連帽背心', '主要布料100%聚酯纖維拼接面料100%聚酯纖維', 4),
+(65, '男款透氣輕盈跑步背心', '主要布料100%聚酯纖維', 4),
+(66, '男款自行車透氣排汗無袖內衣', '主要布料100%聚酯纖維塗層100%聚氨酯纖維', 4),
+(67, '男款籃球背心,上衣/NBA塞爾提克隊', '主要布料100%聚酯纖維', 4),
+(68, '男款透氣快乾跑步背心RUNDRY', '鞋底 50%乙烯醋酸乙烯共聚物EVA,50%乾天然橡膠鞋面100%聚酯纖維內底鞋墊100%聚酯纖維', 4),
+(69, '男款籃球背心/NBA湖人隊', '主要布料100%聚酯纖維塗層100%聚氨酯纖維', 4),
+(70, '男款登山健行多口袋快乾背心', '主要布料100%聚酯纖維', 4),
+(71, '男款籃球雙面背心', '鞋底70%乙烯醋酸乙烯共聚物EVA,30% 橡膠-再生手套鞋面95%聚酯纖維,5%熱塑性聚氨酯內底鞋墊100%聚酯纖維', 4),
+(72, '男款登山健行保暖刷毛背心', '主要布料100%聚酯纖維塗層100%聚氨酯纖維', 4),
+(73, '拳擊連帽背心', '主要布料 100% 聚酯纖維', 4),
+(74, '男款高階羽球吸濕排汗無袖上衣', '主要布料100%聚酯纖維塗層100%聚氨酯纖維', 4);
 
 -- --------------------------------------------------------
 
@@ -328,9 +386,7 @@ ALTER TABLE `product_detail`
 -- 資料表索引 `product_name`
 --
 ALTER TABLE `product_name`
-  ADD PRIMARY KEY (`sid`),
-  ADD UNIQUE KEY `product_name` (`product_name`),
-  ADD KEY `category_id` (`category_id`);
+  ADD PRIMARY KEY (`sid`);
 
 --
 -- 資料表索引 `product_size`
@@ -389,7 +445,7 @@ ALTER TABLE `product_detail`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_name`
 --
 ALTER TABLE `product_name`
-  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_size`
@@ -422,12 +478,6 @@ ALTER TABLE `product_detail`
   ADD CONSTRAINT `product_detail_ibfk_1` FOREIGN KEY (`color_id`) REFERENCES `product_color` (`sid`),
   ADD CONSTRAINT `product_detail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product_name` (`sid`),
   ADD CONSTRAINT `product_detail_ibfk_4` FOREIGN KEY (`size_id`) REFERENCES `product_size` (`sid`);
-
---
--- 資料表的限制式 `product_name`
---
-ALTER TABLE `product_name`
-  ADD CONSTRAINT `product_name_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `product_categories` (`sid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
