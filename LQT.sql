@@ -23,4 +23,21 @@ FROM
     JOIN `member_level` ml ON m.`member_level_sid` = ml.sid
     JOIN `member_role` mr ON m.`role_sid` = mr.sid
 ORDER BY
-    `m`.`created_at` ASC
+    `m`.`created_at` ASC --健身器材查表
+SELECT
+    ed.sid,
+    ed.price,
+    en.equipment_name,
+    en.description,
+    en.description,
+    en.category_id,
+    ed.stocks,
+    ed.picture,
+    ed.added_time,
+    ec.color_name,
+    es.size
+FROM
+    `equipment_detail` ed
+    JOIN `equipment_name` en ON ed.`equipment_id` = en.sid
+    JOIN `equipment_color` ec ON ed.color_id = ec.sid
+    JOIN `equipment_size` es ON es.sid = ed.size_id
