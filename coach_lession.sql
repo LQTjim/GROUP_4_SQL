@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 12, 2023 at 10:44 AM
+-- Generation Time: May 12, 2023 at 02:31 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `coach_lession`
+-- Database: `mfee_36_group_4`
 --
 
 -- --------------------------------------------------------
@@ -308,13 +308,29 @@ CREATE TABLE `c_l_lession` (
   `coach_sid` int(11) NOT NULL,
   `classroom_sid` int(11) NOT NULL,
   `start_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL,
-  `photo` varchar(256) NOT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `photo` varchar(256) NOT NULL DEFAULT './img/lession_img/',
   `price` int(11) NOT NULL,
-  `max_capacity` int(11) NOT NULL,
+  `max_capacity` int(11) NOT NULL DEFAULT '20',
   `enrollment_quantity` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `c_l_lession`
+--
+
+INSERT INTO `c_l_lession` (`sid`, `name`, `description`, `coach_sid`, `classroom_sid`, `start_time`, `end_time`, `photo`, `price`, `max_capacity`, `enrollment_quantity`, `created_at`) VALUES
+(1, '核心強化班', '這個課程專注於鍛煉和加強核心肌群，包括腹肌、腰部和背部肌肉。透過一系列的練習，你將提升核心穩定性、改善姿勢，同時增強身體的力量和平衡能力。', 2, 1, '2023-06-04 00:00:00', NULL, './img/lession_img/', 2500, 20, 0, '2023-05-12 06:29:32'),
+(2, 'HIIT 爆發訓練', '這個高強度間歇訓練課程結合了快速而高效的有氧運動和力量訓練。透過短暫但高強度的運動間歇和休息，你將挑戰心肺耐力、燃燒卡路里並增強肌肉力量。', 7, 2, '2023-06-04 00:00:00', NULL, './img/lession_img/', 2300, 20, 0, '2023-05-12 06:29:32'),
+(3, '瑜伽流動課程', '這個課程以流動的瑜伽動作和呼吸練習為基礎，融合了力量、靈活性和平衡。透過連貫的動作流，你將提升身體柔軟度、強化肌肉，同時培養身心的平靜和集中力。', 3, 1, '2023-06-04 00:00:00', NULL, './img/lession_img/', 2499, 20, 0, '2023-05-12 06:29:32'),
+(4, '腹肌塑造挑戰', '這個課程專注於訓練和塑造腹肌區域。透過一系列針對腹部肌肉的運動，包括仰臥起坐、腹肌收縮和側屈等，你將增強腹部力量、改善腹肌線條和核心穩定性。', 5, 3, '2023-06-04 00:00:00', NULL, './img/lession_img/', 1200, 20, 0, '2023-05-12 06:29:32'),
+(5, '功能性訓練班', '這個課程旨在提升日常生活中所需的功能性運動能力。透過模擬日常活動的運動模式，如推、拉、提、抬等，你將增強肌肉平衡、改善身體姿勢和運動效能。', 1, 1, '2023-06-04 00:00:00', NULL, './img/lession_img/', 1400, 20, 0, '2023-05-12 06:29:32'),
+(6, '有氧踏板課程', '這個課程利用特殊設計的踏板設備進行有氧運動。透過快節奏的踏步運動，你將提升心肺耐力、增加下半身肌肉力量，同時燃燒卡路里，塑造結實的腿部和臀部肌肉。', 2, 2, '2023-06-04 00:00:00', NULL, './img/lession_img/', 1200, 20, 0, '2023-05-12 06:29:32'),
+(7, '舞蹈健身課堂', '這個課程結合了舞蹈動作和有氧運動，讓你在活力四溢的音樂節奏中享受運動。透過跳舞和身體的協調運動，你將增加心肺耐力、提升靈活度，同時享受快樂的運動體驗。', 8, 1, '2023-06-04 00:00:00', NULL, './img/lession_img/', 2000, 20, 0, '2023-05-12 06:29:32'),
+(8, '強化肌力訓練', '這個課程專注於增強全身肌肉力量。透過使用重量訓練器材、彈力帶和自重訓練，你將挑戰肌肉，增加力量和肌耐力，同時塑造結實的身體線條。', 5, 3, '2023-06-04 00:00:00', NULL, './img/lession_img/', 3000, 20, 0, '2023-05-12 06:29:32'),
+(9, '循環鍛煉課程', '這個課程結合了有氧運動和踏板訓練，通常在室內騎車設備上進行。透過快速的節奏和不同強度的訓練段落，你將挑戰心肺耐力、增強下半身肌肉力量，同時消耗大量的卡路里。', 4, 2, '2023-06-04 00:00:00', NULL, './img/lession_img/', 3500, 20, 0, '2023-05-12 06:29:32'),
+(10, '身體平衡與靈活性訓練', '這個課程著重於提升身體的平衡和靈活性。透過各種平衡練習、伸展動作和身體控制訓練，你將增強身體的協調性、改善關節靈活度，同時降低受傷風險，維持身體的柔軟和穩定性。', 6, 1, '2023-06-04 00:00:00', NULL, './img/lession_img/', 2500, 20, 0, '2023-05-12 06:29:32');
 
 -- --------------------------------------------------------
 
@@ -677,7 +693,7 @@ ALTER TABLE `c_l_expertise`
 -- AUTO_INCREMENT for table `c_l_lession`
 --
 ALTER TABLE `c_l_lession`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `c_l_lession_comments`
@@ -729,19 +745,7 @@ ALTER TABLE `c_l_tag`
 -- Constraints for table `c_l_lession`
 --
 ALTER TABLE `c_l_lession`
-  ADD CONSTRAINT `c_l_lession_ibfk_2` FOREIGN KEY (`classroom_sid`) REFERENCES `c_l_classroom` (`sid`);
-
---
--- Constraints for table `c_l_lession_comments`
---
-ALTER TABLE `c_l_lession_comments`
-  ADD CONSTRAINT `c_l_lession_comments_ibfk_1` FOREIGN KEY (`lession_sid`) REFERENCES `c_l_lession` (`sid`);
-
---
--- Constraints for table `c_l_lession_likes`
---
-ALTER TABLE `c_l_lession_likes`
-  ADD CONSTRAINT `c_l_lession_likes_ibfk_1` FOREIGN KEY (`lession_sid`) REFERENCES `c_l_lession` (`sid`);
+  ADD CONSTRAINT `c_l_lession_ibfk_2` FOREIGN KEY (`classroom_sid`) REFERENCES `c_l_classroom` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `c_l_rela_blog_tag`
@@ -761,13 +765,6 @@ ALTER TABLE `c_l_rela_coach_certification`
 --
 ALTER TABLE `c_l_rela_coach_expertise`
   ADD CONSTRAINT `c_l_rela_coach_expertise_ibfk_2` FOREIGN KEY (`expertise_sid`) REFERENCES `c_l_expertise` (`sid`);
-
---
--- Constraints for table `c_l_rela_lession_tag`
---
-ALTER TABLE `c_l_rela_lession_tag`
-  ADD CONSTRAINT `c_l_rela_lession_tag_ibfk_1` FOREIGN KEY (`lession_sid`) REFERENCES `c_l_lession` (`sid`),
-  ADD CONSTRAINT `c_l_rela_lession_tag_ibfk_2` FOREIGN KEY (`tag_sid`) REFERENCES `c_l_tag` (`sid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
