@@ -9423,7 +9423,7 @@ VALUES
     NULL,
     NULL,
     1,
-    ' ./imgs/defalut_icon.jpg;',
+    ' ./imgs/defalut_icon.jpg',
     1,
     '2023-05-16 21:57:32',
     0
@@ -9438,7 +9438,7 @@ VALUES
     NULL,
     NULL,
     1,
-    ' ./imgs/defalut_icon.jpg;',
+    ' ./imgs/defalut_icon.jpg',
     1,
     '2023-05-16 21:59:36',
     0
