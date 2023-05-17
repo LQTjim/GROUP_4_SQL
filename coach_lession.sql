@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 12, 2023 at 02:31 PM
+-- Generation Time: May 17, 2023 at 10:40 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -26,6 +26,25 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `c_l_blog`
 --
+
+DROP TABLE IF EXISTS `c_l_blog`;
+DROP TABLE IF EXISTS `c_l_blog_comments`;
+DROP TABLE IF EXISTS `c_l_blog_likes`;
+DROP TABLE IF EXISTS `c_l_certification`;
+DROP TABLE IF EXISTS `c_l_classroom`;
+DROP TABLE IF EXISTS `c_l_coach`;
+DROP TABLE IF EXISTS `c_l_coach_comments`;
+DROP TABLE IF EXISTS `c_l_coach_likes`;
+DROP TABLE IF EXISTS `c_l_expertise`;
+DROP TABLE IF EXISTS `c_l_lession`;
+DROP TABLE IF EXISTS `c_l_lession_comments`;
+     
+DROP TABLE IF EXISTS `c_l_lession_likes`;
+DROP TABLE IF EXISTS `c_l_rela_blog_tag`;
+DROP TABLE IF EXISTS `c_l_rela_coach_certification`;
+DROP TABLE IF EXISTS `c_l_rela_coach_expertise`;
+DROP TABLE IF EXISTS `c_l_rela_lession_tag`;
+DROP TABLE IF EXISTS `c_l_tag`;
 
 CREATE TABLE `c_l_blog` (
   `sid` int(11) NOT NULL,
@@ -161,7 +180,7 @@ CREATE TABLE `c_l_coach` (
   `nickname` varchar(32) DEFAULT NULL,
   `experience` varchar(512) DEFAULT NULL,
   `introduction` varchar(512) NOT NULL,
-  `photo` varchar(512) NOT NULL DEFAULT './img/coach_img/',
+  `photo` varchar(512) NOT NULL DEFAULT './imgs/coach_imgs/coach.png',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -170,14 +189,14 @@ CREATE TABLE `c_l_coach` (
 --
 
 INSERT INTO `c_l_coach` (`sid`, `member_sid`, `nickname`, `experience`, `introduction`, `photo`, `created_at`) VALUES
-(1, 6, 'Jason', '擁有5年健身教練經驗，曾在多家知名健身中心擔任教練，專長是重訓和體能訓練。', '嗨我是健森，也可以叫我Jason。我熱愛運動和健身，希望能幫助大家達到健康和理想的身材目標。我專注於提供個人化的訓練計劃和鼓勵，讓你在訓練中不斷進步。', './img/coach_img/', '2023-05-11 06:38:16'),
-(2, 8, 'Bin', '擁有8年健身教練經驗，曾在健身俱樂部和私人訓練室工作，專長是有氧運動和核心訓練。', '大家好，我是陳學彬，Bin。我相信運動對於身心健康的重要性，我喜歡帶領人們享受運動的樂趣並達到他們的健身目標。無論你是初學者還是有經驗的運動員，我都會根據你的需求提供專業的指導和支持。', './img/coach_img/', '2023-05-11 06:38:16'),
-(3, 9, 'Andy', '擁有3年健身教練經驗，曾在健身工作室和健身訓練營工作，專長是柔軟度和核心訓練。', '大家好，我是湯臨安，也可以叫我Andy。我熱衷於幫助人們改善柔軟度和增強核心力量。無論你是想改善體態還是提升運動表現，我都能提供適合你的訓練計劃。', './img/coach_img/', '2023-05-11 06:38:16'),
-(4, 11, 'CJ', '擁有6年健身教練經驗，曾在健身俱樂部和健康中心工作，專長是有氧運動和體態調整。', '大家好，我是世傑，大家都叫我CJ。我喜歡結合有氧運動和體態調整，幫助人們塑造健康而有自信的身體。我相信運動不僅能改善身體，還能提升心理健康。', './img/coach_img/', '2023-05-11 06:38:16'),
-(5, 12, 'Max', '擁有4年健身教練經驗，曾在運動中心和健身訓練營任職，專長是重訓和增肌。', '大家好，我是陳明志，也可以叫我Max。我熱愛健身和力量訓練，喜歡幫助人們增加肌肉量並達到身材塑造的目標。我會提供個人化的訓練計劃和營養建議，讓你達到理想的身體成果。', './img/coach_img/', '2023-05-11 06:38:16'),
-(6, 14, 'Linda', '擁有6年健身教練經驗，曾在健身俱樂部擔任私人訓練師，專長是瑜珈和普拉提。', 'Hello 我是林瑜，也可以叫我Linda。我對瑜珈和普拉提充滿熱情，相信這些運動對於塑造身體和平衡心靈都有著重要的作用。我期待與大家一起探索身心的平衡，並幫助你們實現健康和靈活的目標。', './img/coach_img/', '2023-05-11 06:38:16'),
-(7, 22, 'Kai', '擁有7年健身教練經驗，曾在多家健身中心擔任教練，專長是重訓和徒手訓練。', '大家好，我是徐凱傑 Kai。我對於重訓和徒手訓練有著深深的熱愛，相信這些訓練方式可以塑造強健的身體和提升肌力。我將根據你的目標和能力，設計個人化的訓練課表', './img/coach_img/', '2023-05-11 06:38:16'),
-(8, 26, 'Samantha', '擁有5年健身教練經驗，曾在私人健身工作室擔任主管教練，專長是舞蹈訓練和伸展運動。', '大家好，我是林思婷，也可以叫我Samantha。我熱愛舞蹈和伸展運動，並相信它們對於身體靈活性和身心平衡的重要性。我期待與你一起享受運動的樂趣，並幫助你提升柔軟度和身體的協調性。', './img/coach_img/', '2023-05-11 06:38:16');
+(1, 6, 'Jason', '擁有5年健身教練經驗，在多家知名健身中心擔任教練，專長是重訓和體能訓練。', '你好我是健森，也可以叫我Jason。我熱愛運動和健身，希望能幫助大家達到健康和理想的身材目標。我專注於提供個人化的訓練計劃和鼓勵，讓你在訓練中不斷進步。', './imgs/coach_imgs/3b47c1f884e5262e00509dec648a1b615c99c2e9.jpg', '2020-12-27 16:00:00'),
+(2, 8, 'Bin', '擁有9年健身教練經驗，曾在健身俱樂部和私人訓練室工作，專長是有氧運動和核心訓練。', '大家好，我是陳學彬，Bin。我相信運動對於身心健康的重要性，我喜歡帶領人們享受運動的樂趣並達到他們的健身目標。無論你是初學者還是有經驗的運動員，我都會根據你的需求提供專業的指導和支持。', './imgs/coach_imgs/c10c32fd68d2cb3edbfa260266176db6a718be6d.png', '2023-05-02 16:00:00'),
+(3, 9, 'Andy', '擁有3年健身教練經驗，曾在健身工作室和健身訓練營工作，專長是柔軟度和核心訓練。', '大家好，我是湯臨安，也可以叫我Andy。我熱衷於幫助人們改善柔軟度和增強核心力量。無論你是想改善體態還是提升運動表現，我都能提供適合你的訓練計劃。', './imgs/coach_imgs/400317baf73a9e30cedac715cdacf989a0a119af.png', '2023-05-11 06:38:16'),
+(4, 11, 'CJ', '擁有6年健身教練經驗，曾在健身俱樂部和健康中心工作，專長是有氧運動和體態調整。', '大家好，我是世傑，大家都叫我CJ。我喜歡結合有氧運動和體態調整，幫助人們塑造健康而有自信的身體。我相信運動不僅能改善身體，還能提升心理健康。', './imgs/coach_imgs/86e6cce5d07e2684f661a37567d82bc73cdd77cd.jpg', '2023-05-11 06:38:16'),
+(5, 12, 'Max', '擁有4年健身教練經驗，曾在運動中心和健身訓練營任職，專長是重訓和增肌。', '大家好，我是陳明志，也可以叫我Max。我熱愛健身和力量訓練，喜歡幫助人們增加肌肉量並達到身材塑造的目標。我會提供個人化的訓練計劃和營養建議，讓你達到理想的身體成果。', './imgs/coach_imgs/81ca8c20fe814b7121c320f69d34ac8a74eaf68b.jpg', '2023-05-11 06:38:16'),
+(6, 14, 'Linda', '擁有6年健身教練經驗，曾在健身俱樂部擔任私人訓練師，專長是瑜珈和普拉提。', 'Hello 我是林瑜，也可以叫我Linda。我對瑜珈和普拉提充滿熱情，相信這些運動對於塑造身體和平衡心靈都有著重要的作用。我期待與大家一起探索身心的平衡，並幫助你們實現健康和靈活的目標。', './imgs/coach_imgs/a006e364f939e3e22e01b1731813ff1947451be8.jpg', '2023-05-11 06:38:16'),
+(7, 22, 'Kai', '擁有7年健身教練經驗，曾在多家健身中心擔任教練，專長是重訓和徒手訓練。', '大家好，我是徐凱傑 Kai。我對於重訓和徒手訓練有著深深的熱愛，相信這些訓練方式可以塑造強健的身體和提升肌力。我將根據你的目標和能力，設計個人化的訓練課表', './imgs/coach_imgs/9a9903f9762f1d637c4b99c2a3ee5ff10bfd976e.jpg', '2023-05-11 06:38:16'),
+(8, 26, 'Samantha', '擁有5年健身教練經驗，曾在私人健身工作室擔任主管教練，專長是舞蹈訓練和伸展運動。', '大家好，我是林思婷，也可以叫我Samantha。我熱愛舞蹈和伸展運動，並相信它們對於身體靈活性和身心平衡的重要性。我期待與你一起享受運動的樂趣，並幫助你提升柔軟度和身體的協調性。', './imgs/coach_imgs/26956f3cebbdca8e0b3536131c2105e9f1baaec7.jpg', '2021-02-01 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -363,7 +382,6 @@ CREATE TABLE `c_l_lession_likes` (
 --
 -- Table structure for table `c_l_rela_blog_tag`
 --
-
 CREATE TABLE `c_l_rela_blog_tag` (
   `sid` int(11) NOT NULL,
   `blog_sid` int(11) NOT NULL,
@@ -381,6 +399,20 @@ CREATE TABLE `c_l_rela_coach_certification` (
   `coach_sid` int(11) NOT NULL,
   `certification_sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `c_l_rela_coach_certification`
+--
+
+INSERT INTO `c_l_rela_coach_certification` (`sid`, `coach_sid`, `certification_sid`) VALUES
+(60, 1, 1),
+(61, 1, 2),
+(62, 1, 3),
+(63, 1, 4),
+(42, 3, 1),
+(37, 4, 1),
+(38, 4, 35),
+(4, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -605,6 +637,7 @@ ALTER TABLE `c_l_rela_blog_tag`
 --
 ALTER TABLE `c_l_rela_coach_certification`
   ADD PRIMARY KEY (`sid`),
+  ADD UNIQUE KEY `coach_sid_2` (`coach_sid`,`certification_sid`),
   ADD KEY `coach_sid` (`coach_sid`),
   ADD KEY `certification_sid` (`certification_sid`);
 
@@ -717,7 +750,7 @@ ALTER TABLE `c_l_rela_blog_tag`
 -- AUTO_INCREMENT for table `c_l_rela_coach_certification`
 --
 ALTER TABLE `c_l_rela_coach_certification`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `c_l_rela_coach_expertise`
