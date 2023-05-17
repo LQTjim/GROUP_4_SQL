@@ -27,6 +27,18 @@ SET time_zone = "+00:00";
 -- Table structure for table `order_cart`
 --
 
+DROP TABLE IF EXISTS `order_cart`;
+
+DROP TABLE IF EXISTS `order_detail`;
+
+DROP TABLE IF EXISTS `order_main`;
+
+DROP TABLE IF EXISTS `order_method`;
+
+DROP TABLE IF EXISTS `order_product_type`;
+
+DROP TABLE IF EXISTS `order_payment`;
+
 CREATE TABLE `order_cart` (
   `sid` int(11) NOT NULL,
   `member_sid` int(11) NOT NULL,
