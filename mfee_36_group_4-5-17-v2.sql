@@ -51,7 +51,7 @@ CREATE TABLE `member` (
   `address` varchar(255) DEFAULT NULL,
   `sex_sid` int(11) DEFAULT NULL,
   `member_level_sid` int(11) NOT NULL DEFAULT '1',
-  `hero_icon` varchar(255) DEFAULT ' ./imgs/defalut_icon.jpg;',
+  `hero_icon` varchar(255) DEFAULT ' ./imgs/defalut_icon.jpg',
   `role_sid` int(11) NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '0'
