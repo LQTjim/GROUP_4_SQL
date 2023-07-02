@@ -20,7 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `shoppingcart`
 --
-
+DROP TABLE IF EXISTS `order_cart`;
+DROP TABLE IF EXISTS `order_detail`;
+DROP TABLE IF EXISTS `order_main`;
+DROP TABLE IF EXISTS `order_method`;
+DROP TABLE IF EXISTS `order_payment`;
 -- --------------------------------------------------------
 
 --
