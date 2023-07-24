@@ -26,7 +26,10 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `member`
 --
-
+DROP TABLE IF EXISTS `member`;
+DROP TABLE IF EXISTS `member_level`;
+DROP TABLE IF EXISTS `member_role`;
+DROP TABLE IF EXISTS `member_sex`;
 CREATE TABLE `member` (
   `sid` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -187,13 +190,6 @@ INSERT INTO `member_favorite_products` (`sid`, `member_sid`, `product_sid`, `cat
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`sid`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `mobile` (`mobile`),
-  ADD KEY `sex_sid` (`sex_sid`),
-  ADD KEY `hero_icon_sid` (`hero_icon`),
-  ADD KEY `member_level_sid` (`member_level_sid`),
-  ADD KEY `role_sid` (`role_sid`);
-
 --
 -- Indexes for table `member_favorite_lessons`
 --
@@ -232,14 +228,7 @@ ALTER TABLE `member_favorite_products`
 -- Constraints for dumped tables
 --
 
---
--- Constraints for table `member`
---
-ALTER TABLE `member`
-  ADD CONSTRAINT `member_ibfk_1` FOREIGN KEY (`member_level_sid`) REFERENCES `member_level` (`sid`),
-  ADD CONSTRAINT `member_ibfk_2` FOREIGN KEY (`role_sid`) REFERENCES `member_role` (`sid`),
-  ADD CONSTRAINT `member_ibfk_3` FOREIGN KEY (`sex_sid`) REFERENCES `member_sex` (`sid`);
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
