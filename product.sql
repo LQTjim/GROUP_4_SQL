@@ -3,11 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost:3306
--- 產生時間： 2023-07-24 16:14:01
+-- 產生時間： 2023-07-28 17:10:18
 -- 伺服器版本： 5.7.24
 -- PHP 版本： 8.0.1
-SET
-  SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,24 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `mfee_36_group_4_product`
+-- 資料庫: `product`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `equipment_description`
+-- 資料表結構 `equipment_description`
 --
+
+DROP TABLE IF EXISTS `equipment_description`;
 CREATE TABLE `equipment_description` (
   `sid` int(19) NOT NULL,
   `col1` varchar(255) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `equipment_description`
+--
+
+INSERT INTO `equipment_description` (`sid`, `col1`) VALUES
+(12, '我們自豪地介紹全效能運動啞鈴，為你提供全面的訓練效果和增強身體力量的工具。這套啞鈴組包含多個重量選擇,讓你能夠根據個人需求和訓練目標進行調整，都能找到適合你的重量。,多重選擇,全效能運動啞鈴組包含多個重量選擇。,耐用材質,我們的啞鈴採用高品質的鑄鐵材料製成，經久耐用。,符合人體工學設計,啞鈴握把採用符合人體工學的設計，提供舒適的握持感和防滑功能。,多功能訓練,全效能運動啞鈴組可進行多種訓練動作。,存放建議,存放時請勿直接接觸地面，以免造成地板損壞。');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `equipment_name`
+-- 資料表結構 `equipment_name`
 --
+
+DROP TABLE IF EXISTS `equipment_name`;
 CREATE TABLE `equipment_name` (
   `sid` int(19) NOT NULL,
   `equipment_name` varchar(255) NOT NULL,
@@ -49,7 +58,7 @@ CREATE TABLE `equipment_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `equipment_name`
+-- 傾印資料表的資料 `equipment_name`
 --
 
 INSERT INTO `equipment_name` (`sid`, `equipment_name`, `category_id`, `price`, `stocks`, `picture`, `created_at`) VALUES
@@ -93,18 +102,30 @@ INSERT INTO `equipment_name` (`sid`, `equipment_name`, `category_id`, `price`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food_description`
+-- 資料表結構 `food_description`
 --
+
+DROP TABLE IF EXISTS `food_description`;
 CREATE TABLE `food_description` (
   `sid` int(11) NOT NULL,
-  `col1` varchar(255) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+  `col1` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `food_description`
+--
+
+INSERT INTO `food_description` (`sid`, `col1`) VALUES
+(10, '極致乳清蛋白粉是為運動員和健身愛好者量身打造的完美選擇,我們自豪地呈獻極致乳清蛋白粉，這是運動員和健身愛好者的完美選擇。,純淨的乳清蛋白,我們的極致乳清蛋白粉使用最高品質的乳清蛋白，經過嚴格的過濾和處理，以確保它的純淨度和純度。,豐富的氨基酸,乳清蛋白富含豐富的氨基酸，包括支鏈氨基酸（BCAA），這些對於肌肉生長和恢復至關重要。,易於消化,極致乳清蛋白粉具有優越的消化性，可以快速吸收，使蛋白質迅速進入你的肌肉。,無添加糖分,我們的蛋白粉不含添加糖分，避免增加不必要的卡路里，讓你更好地控制你的營養攝入。,使用方法,將一份極致乳清蛋白粉加入250毫升的水或牛奶中，攪拌均勻。你可以在早上起床後、運動前後或任何時間補充蛋白質。 '),
+(11, '超能量補給食品是你一整天的好選擇，豐富的蛋白質補充你一天所需的能量,這款能量食品結合了高品質蛋白質和豐富的能量來源，提供持久的能量和滿足感，是你忙碌的日常生活和運動時的完美伴侶。,優質蛋白質,超能量補給蛋白能量棒含有高品質的蛋白質，如乳清蛋白和大豆蛋白，這些蛋白質是肌肉修復和成長的關鍵。,多種能量來源,我們的能量棒採用多種能量來源，包括全穀物、堅果、水果等，提供持久的能量，幫助你應對高強度的運動和忙碌的生活。,營養均衡,提供蛋白質、碳水化合物和脂肪等多種營養成分，讓你保持飽足感和能量充沛。,方便攜帶,這款能量棒設計為方便攜帶，你可以輕鬆放入背包。,存放建議,請放置在乾燥陰涼處。');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food_name`
+-- 資料表結構 `food_name`
 --
+
+DROP TABLE IF EXISTS `food_name`;
 CREATE TABLE `food_name` (
   `sid` int(11) NOT NULL,
   `food_name` varchar(255) NOT NULL,
@@ -116,7 +137,7 @@ CREATE TABLE `food_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `food_name`
+-- 傾印資料表的資料 `food_name`
 --
 
 INSERT INTO `food_name` (`sid`, `food_name`, `category_id`, `price`, `stocks`, `picture`, `created_at`) VALUES
@@ -172,8 +193,10 @@ INSERT INTO `food_name` (`sid`, `food_name`, `category_id`, `price`, `stocks`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_categories`
+-- 資料表結構 `product_categories`
 --
+
+DROP TABLE IF EXISTS `product_categories`;
 CREATE TABLE `product_categories` (
   `sid` int(19) NOT NULL,
   `categories_name` varchar(255) NOT NULL,
@@ -181,7 +204,7 @@ CREATE TABLE `product_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product_categories`
+-- 傾印資料表的資料 `product_categories`
 --
 
 INSERT INTO `product_categories` (`sid`, `categories_name`, `parent_sid`) VALUES
@@ -206,8 +229,10 @@ INSERT INTO `product_categories` (`sid`, `categories_name`, `parent_sid`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_color`
+-- 資料表結構 `product_color`
 --
+
+DROP TABLE IF EXISTS `product_color`;
 CREATE TABLE `product_color` (
   `sid` int(19) NOT NULL,
   `color_name` varchar(255) NOT NULL,
@@ -215,7 +240,7 @@ CREATE TABLE `product_color` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product_color`
+-- 傾印資料表的資料 `product_color`
 --
 
 INSERT INTO `product_color` (`sid`, `color_name`, `color_code`) VALUES
@@ -234,30 +259,62 @@ INSERT INTO `product_color` (`sid`, `color_name`, `color_code`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_comment`
+-- 資料表結構 `product_comment`
 --
+
+DROP TABLE IF EXISTS `product_comment`;
 CREATE TABLE `product_comment` (
   `sid` int(19) NOT NULL,
   `member_sid` int(19) NOT NULL,
   `product_name_sid` int(19) NOT NULL,
   `comment` varchar(255) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `product_comment`
+--
+
+INSERT INTO `product_comment` (`sid`, `member_sid`, `product_name_sid`, `comment`) VALUES
+(1, 1, 1, '這件運動T恤非常舒適，適合運動時穿著，面料吸汗又透氣，顏色也很好看，我很滿意這次的購買！'),
+(2, 2, 1, '真的很喜歡這款T恤，快乾功能非常實用，而且質地柔軟，穿起來很舒適，顏色也很亮眼！'),
+(3, 3, 1, '這件T恤的設計很特別，款式加分，料子也很舒服，很適合健身房或運動戶外穿著，真的很喜歡！'),
+(4, 4, 1, '這個T恤非常適合夏天，透氣性很好，運動時不會感到悶熱，而且版型也很修身，喜歡！'),
+(5, 5, 1, '讚啦!!非常值得購買'),
+(6, 6, 1, '這款短袖T恤真的很涼爽，透氣性很好，面料輕薄，運動時不會有黏膩感，顏色也很清新，很推薦！'),
+(7, 7, 1, '這款T恤非常適合夏天運動，透氣性好，設計簡約卻不失時尚感，是我必備的運動單品！'),
+(8, 8, 1, '這件彈性T恤非常舒適，而且具有拉伸性，運動時不會有束縛感，非常適合健身和瑜伽！'),
+(9, 9, 1, '這件T恤質地很舒服，適合秋季運動穿著，而且款式也很時尚，是我運動衣櫥的新寵！'),
+(10, 10, 1, '讚啦!!');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_description`
+-- 資料表結構 `product_description`
 --
+
+DROP TABLE IF EXISTS `product_description`;
 CREATE TABLE `product_description` (
   `sid` int(19) NOT NULL,
   `col1` varchar(255) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `product_description`
+--
+
+INSERT INTO `product_description` (`sid`, `col1`) VALUES
+(5, '在勃朗峰腳下，我們的徒步愛好者團隊設計了這款透氣T恤，專為偶爾的徒步旅行而打造。,這是您初次登山徒步的完美T恤！,透氣快乾,面料吸收身體的濕氣並將其向外轉移。,活動自由度,彈性面料（23％氨綸）提供極佳的運動舒適度。,輕盈,L號尺碼僅110克！,快乾,合成纖維的面料在濕潤時迅速乾燥，如遇汗水也能快速乾爽。,透氣性,絎縫材質的結構自然透氣'),
+(7, '我們的徒步設計師為在低地、森林或海岸地區的偶爾徒步旅行而設計了這款褲子。,褲子採用彈性面料，剪裁舒適。無論是在徒步旅行還是在城鎮漫步，您都會顯得時尚。,活動自由度,彈性面料（2％氨綸）和寬鬆剪裁,口袋設計,4個口袋 | 1個帶魔術貼的大腿口袋 | 2個手袋 | 1個後袋,柔軟舒適度,主要成分含有79％棉,人體工學設計,常規剪裁 | 可選擇S號至3XL號,使用者舒適度,寬腰帶環和按扣門扣'),
+(8, '你是否想嘗試在雪地小徑上行走？我們的工程師為偶爾徒步旅行開發了這些靴子。非常適合在緊實的雪地上行走。,保暖且防水，搭配雪地接觸橡膠鞋底，確保更好的抓地力，讓您在緊實雪地的徒步旅行中充滿信心前進。,保暖性,舒適溫度 - 靜止時：12°F，移動時：-4°F。,防水性,防水透氣薄膜，讓您的雙腳保持乾燥。,抓地力,採用SNOWCONTACT技術：鞋底材料和紋路設計提供優異的抓地力。,牽引力,3毫米釘的位置和深度提供在雪地上的牽引力。,合腳性,中筒設計，腳背處設有眼lets方便收緊鞋帶。'),
+(9, '專為尋找適合其運動的舒適、耐用襪子的初學者網球運動員而設計。,這些富含棉質的運動襪保持原樣，耐用且舒適。 非常適合初學者打網球，也適合其他球拍運動。每包 3 雙出售。,耐磨性,襯有加強處理的腳後跟和腳趾，使襪子更耐穿。,減少刺激,柔軟的刷毛棉，加強處理並加厚的環繞易擦擦擦部位。,穩定性,具彈性的針織面料，配有彈性的非標記中足帶。,透氣性,採用透氣材料，讓腳部保持涼爽舒適，即使在激烈運動中也能保持通風。,防臭功能,特殊處理的面料，有效防止異味產生，讓您在多次穿著後仍保持清新。');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_detail`
+-- 資料表結構 `product_detail`
 --
+
+DROP TABLE IF EXISTS `product_detail`;
 CREATE TABLE `product_detail` (
   `sid` int(19) NOT NULL,
   `product_name_sid` varchar(255) NOT NULL,
@@ -269,7 +326,7 @@ CREATE TABLE `product_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product_detail`
+-- 傾印資料表的資料 `product_detail`
 --
 
 INSERT INTO `product_detail` (`sid`, `product_name_sid`, `stocks`, `picture`, `created_at`, `color_id`, `size_id`) VALUES
@@ -317,8 +374,10 @@ INSERT INTO `product_detail` (`sid`, `product_name_sid`, `stocks`, `picture`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_name`
+-- 資料表結構 `product_name`
 --
+
+DROP TABLE IF EXISTS `product_name`;
 CREATE TABLE `product_name` (
   `sid` int(19) NOT NULL,
   `product_name` varchar(255) NOT NULL,
@@ -329,375 +388,179 @@ CREATE TABLE `product_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product_name`
+-- 傾印資料表的資料 `product_name`
 --
-INSERT INTO
-  `product_name` (
-    `sid`,
-    `product_name`,
-    `category_id`,
-    `price`,
-    `picture`,
-    `created_at`
-  )
-VALUES
-  (
-    1,
-    '男士合成短袖遠足T恤',
-    5,
-    100,
-    'st0010101.jpg',
-    '2023-06-30 07:25:46'
-  ),
-  (
-    2,
-    '男士透氣圓領 Essential Fitness T恤 - 斑駁灰色',
-    5,
-    100,
-    'st0020101.jpg',
-    '2023-06-30 07:25:46'
-  ),
-  (
-    3,
-    '男士健身 T 卹 100 Sportee - 白色',
-    5,
-    100,
-    'st0030101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    4,
-    '男士圓領透氣健身 T 卹 - 米色',
-    5,
-    100,
-    'st0040101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    5,
-    'Triban Essential 吸濕排汗短袖公路自行車騎行服男式',
-    5,
-    100,
-    'st0050101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    6,
-    '男士跑步透氣 T 卹 Dry+ - 黑色',
-    5,
-    100,
-    'st0060101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    7,
-    'Inesis，短袖高爾夫 Polo 衫，男士',
-    5,
-    100,
-    'st0070101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    8,
-    'Forclaz Travel 100 美利奴羊毛遠足 T 恤男式',
-    5,
-    100,
-    'st0080101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    9,
-    '男士基本款短袖網球 T 恤 - 白色',
-    5,
-    100,
-    'st0090101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    10,
-    'Van Rysel 透氣公路自行車賽車服男式',
-    5,
-    100,
-    'st0100101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    11,
-    '男士基本款短袖網球 Polo 衫 - 海軍藍',
-    5,
-    100,
-    'st0110101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    12,
-    '男士徒步合成短袖 T 卹 MH500',
-    5,
-    100,
-    'st0120101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    13,
-    '男式 Quechua NH500 棉混紡遠足 T 卹',
-    5,
-    100,
-    'st0130101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    14,
-    'NH550 Fresh 徒步旅行 T 卹男式',
-    5,
-    100,
-    'st0140101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    15,
-    'Forclaz Trek 500 長袖美利奴羊毛徒步 T 卹男式',
-    5,
-    100,
-    'st0150101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    16,
-    '男士短袖公路自行車夏季騎行服 RC500 - 海軍藍',
-    5,
-    100,
-    'st0160101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    17,
-    '男式短袖棉質迷彩狩獵 T 卹',
-    5,
-    100,
-    'st0170101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    18,
-    '男士普拉提和溫和健身房修身運動 T 卹 520',
-    5,
-    100,
-    'st0180101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    19,
-    'Nyamba 500 彈力棉質健身 T 卹男式',
-    5,
-    100,
-    'st0190101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    20,
-    'Forclaz Trek 500 拉鍊長袖美利奴羊毛徒步 T 卹男式',
-    5,
-    100,
-    'st0200101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    21,
-    'Inesis 男士輕質高爾夫 Polo 衫',
-    5,
-    100,
-    'st0210101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    22,
-    'Domyos 動悅適 無縫短袖力量瑜伽 T 卹 男士',
-    5,
-    100,
-    'st0220101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    23,
-    'Kiprun Skincare 男士透氣跑步 T 卹',
-    5,
-    100,
-    'st0230101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    24,
-    'Neo Racer 男式公路自行車騎行服',
-    5,
-    100,
-    'st0240101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    25,
-    '男式高爾夫馬球長袖 - MW500 海軍藍',
-    5,
-    100,
-    'st0250101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    26,
-    'Kiprun Care 男式透氣跑步 T 卹',
-    5,
-    100,
-    'st0260101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    27,
-    'Solognac 100 男士透氣短袖狩獵 T 卹',
-    5,
-    100,
-    'st0270101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    28,
-    'Kiprun 男士輕薄透氣跑步 T 卹',
-    5,
-    100,
-    'st0280101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    29,
-    'Forclaz Travel 500 男式可調節登山襯衫',
-    5,
-    100,
-    'st0290101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    30,
-    '男士長袖健身 T 卹 100 - 黑色',
-    5,
-    100,
-    'st0300101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    31,
-    '男士步行長褲 - 灰色',
-    7,
-    100,
-    'pt0010101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    32,
-    '城市騎行防雨褲帶內置套鞋 100 - 黑色',
-    7,
-    100,
-    'pt0020101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    33,
-    'Quechua MH150 多種穿法登山褲 男士',
-    7,
-    100,
-    'pt0030101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    34,
-    '男士山地徒步耐用二合一拉鍊長褲 MT100',
-    7,
-    100,
-    'pt0040101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    35,
-    'Kalenji Run 男式保暖跑步緊身褲',
-    7,
-    100,
-    'pt0050101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    36,
-    '男士防水登山褲 NH500 Imper',
-    7,
-    100,
-    'pt0060101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    37,
-    'Btwin 100 男士公路自行車緊身褲',
-    7,
-    100,
-    'pt0070101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    38,
-    'Quechua SH100 X-Warm 防水男式雪地徒步褲',
-    7,
-    100,
-    'pt0080101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    39,
-    'Travel 100 男士旅行背包工裝褲',
-    7,
-    100,
-    'pt0090101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    40,
-    '男士保暖滑雪褲 100 - 黑色',
-    7,
-    100,
-    'pt0100101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    41,
-    '男士跑步透氣長褲襪 - 黑色',
-    7,
-    100,
-    'pt0110101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    42,
-    'Quechua MH100M 男士登山褲',
-    7,
-    100,
-    'pt0120101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    43,
-    '男式堅固山地背包褲 - MT500',
-    7,
-    100,
-    'pt0130101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    44,
-    'Quechua SH500 X-Warm 防水雪地徒步褲男式',
-    7,
-    100,
-    'pt0140101.jpg',
-    '0000-00-00 00:00:00'
-  ),
-  (
-    45,
-    '男士保暖滑雪褲 180 - 黑色',
-    7,
-    100,
-    'pt0150101.jpg',
-    '0000-00-00 00:00:00'
-  );
+
+INSERT INTO `product_name` (`sid`, `product_name`, `category_id`, `price`, `picture`, `created_at`) VALUES
+(1, '男士合成短袖遠足T恤', 5, 100, 'st0010101.jpg', '2022-10-27 14:07:38'),
+(2, '男士透氣圓領 Essential Fitness T恤 - 斑駁灰色', 5, 100, 'st0020101.jpg', '2023-01-06 11:49:13'),
+(3, '男士健身 T 卹 100 Sportee - 白色', 5, 100, 'st0030101.jpg', '2023-04-15 09:49:47'),
+(4, '男士圓領透氣健身 T 卹 - 米色', 5, 100, 'st0040101.jpg', '2023-01-22 06:47:50'),
+(5, 'Triban Essential 吸濕排汗短袖公路自行車騎行服男式', 5, 100, 'st0050101.jpg', '2023-02-08 21:36:21'),
+(6, '男士跑步透氣 T 卹 Dry+ - 黑色', 5, 150, 'st0060101.jpg', '2023-01-12 08:44:50'),
+(7, 'Inesis，短袖高爾夫 Polo 衫，男士', 5, 150, 'st0070101.jpg', '2022-07-05 20:01:43'),
+(8, 'Forclaz Travel 100 美利奴羊毛遠足 T 恤男式', 5, 150, 'st0080101.jpg', '2023-02-15 19:00:40'),
+(9, '男士基本款短袖網球 T 恤 - 白色', 5, 150, 'st0090101.jpg', '2022-10-10 04:04:46'),
+(10, 'Van Rysel 透氣公路自行車賽車服男式', 5, 150, 'st0100101.jpg', '2023-03-01 04:28:23'),
+(11, '男士基本款短袖網球 Polo 衫 - 海軍藍', 5, 200, 'st0110101.jpg', '2023-03-02 03:14:12'),
+(12, '男士徒步合成短袖 T 卹 MH500', 5, 200, 'st0120101.jpg', '2023-01-04 19:52:24'),
+(13, '男式 Quechua NH500 棉混紡遠足 T 卹', 5, 200, 'st0130101.jpg', '2023-03-26 10:46:00'),
+(14, 'NH550 Fresh 徒步旅行 T 卹男式', 5, 200, 'st0140101.jpg', '2022-10-19 11:19:21'),
+(15, 'Forclaz Trek 500 長袖美利奴羊毛徒步 T 卹男式', 5, 200, 'st0150101.jpg', '2022-12-21 17:25:19'),
+(16, '男士短袖公路自行車夏季騎行服 RC500 - 海軍藍', 5, 200, 'st0160101.jpg', '2023-02-19 22:15:07'),
+(17, '男式短袖棉質迷彩狩獵 T 卹', 5, 200, 'st0170101.jpg', '2022-06-11 04:06:11'),
+(18, '男士普拉提和溫和健身房修身運動 T 卹 520', 5, 200, 'st0180101.jpg', '2022-06-21 18:52:08'),
+(19, 'Nyamba 500 彈力棉質健身 T 卹男式', 5, 200, 'st0190101.jpg', '2022-09-14 03:08:43'),
+(20, 'Forclaz Trek 500 拉鍊長袖美利奴羊毛徒步 T 卹男式', 5, 200, 'st0200101.jpg', '2022-10-09 00:13:45'),
+(21, 'Inesis 男士輕質高爾夫 Polo 衫', 5, 250, 'st0210101.jpg', '2022-06-02 08:49:09'),
+(22, 'Domyos 動悅適 無縫短袖力量瑜伽 T 卹 男士', 5, 250, 'st0220101.jpg', '2022-06-14 12:31:03'),
+(23, 'Kiprun Skincare 男士透氣跑步 T 卹', 5, 250, 'st0230101.jpg', '2022-09-04 05:14:26'),
+(24, 'Neo Racer 男式公路自行車騎行服', 5, 250, 'st0240101.jpg', '2022-09-11 05:45:35'),
+(25, '男式高爾夫馬球長袖 - MW500 海軍藍', 5, 250, 'st0250101.jpg', '2023-02-13 06:11:11'),
+(26, 'Kiprun Care 男式透氣跑步 T 卹', 5, 100, 'st0260101.jpg', '2023-03-09 06:45:46'),
+(27, 'Solognac 100 男士透氣短袖狩獵 T 卹', 5, 100, 'st0270101.jpg', '2023-03-29 08:21:52'),
+(28, 'Kiprun 男士輕薄透氣跑步 T 卹', 5, 100, 'st0280101.jpg', '2023-04-26 14:38:34'),
+(29, 'Forclaz Travel 500 男式可調節登山襯衫', 5, 100, 'st0290101.jpg', '2022-07-16 17:13:51'),
+(30, '男士長袖健身 T 卹 100 - 黑色', 5, 100, 'st0300101.jpg', '2022-06-02 11:20:06'),
+(31, '男士步行長褲 - 灰色', 7, 100, 'pt0010101.jpg', '2023-02-22 22:05:31'),
+(32, '城市騎行防雨褲帶內置套鞋 100 - 黑色', 7, 100, 'pt0020101.jpg', '2023-02-22 21:33:50'),
+(33, 'Quechua MH150 多種穿法登山褲 男士', 7, 100, 'pt0030101.jpg', '2022-12-18 10:39:14'),
+(34, '男士山地徒步耐用二合一拉鍊長褲 MT100', 7, 100, 'pt0040101.jpg', '2023-01-20 05:41:13'),
+(35, 'Kalenji Run 男式保暖跑步緊身褲', 7, 100, 'pt0050101.jpg', '2023-01-18 13:34:57'),
+(36, '男士防水登山褲 NH500 Imper', 7, 100, 'pt0060101.jpg', '2022-10-03 19:57:43'),
+(37, 'Btwin 100 男士公路自行車緊身褲', 7, 100, 'pt0070101.jpg', '2023-04-23 04:10:16'),
+(38, 'Quechua SH100 X-Warm 防水男式雪地徒步褲', 7, 100, 'pt0080101.jpg', '2022-12-11 02:04:45'),
+(39, 'Travel 100 男士旅行背包工裝褲', 7, 100, 'pt0090101.jpg', '2022-06-19 14:59:33'),
+(40, '男士保暖滑雪褲 100 - 黑色', 7, 100, 'pt0100101.jpg', '2023-03-03 13:50:04'),
+(41, '男士跑步透氣長褲襪 - 黑色', 7, 100, 'pt0110101.jpg', '2023-02-14 17:18:16'),
+(42, 'Quechua MH100M 男士登山褲', 7, 100, 'pt0120101.jpg', '2022-10-12 14:07:43'),
+(43, '男式堅固山地背包褲 - MT500', 7, 100, 'pt0130101.jpg', '2023-03-16 11:50:22'),
+(44, 'Quechua SH500 X-Warm 防水雪地徒步褲男式', 7, 100, 'pt0140101.jpg', '2022-05-10 09:55:14'),
+(45, '男士保暖滑雪褲 180 - 黑色', 7, 100, 'pt0150101.jpg', '2022-11-01 07:11:41');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `product_rating`
+--
+
+DROP TABLE IF EXISTS `product_rating`;
+CREATE TABLE `product_rating` (
+  `sid` int(19) NOT NULL,
+  `rating` int(1) DEFAULT NULL,
+  `product_name_sid` int(11) NOT NULL,
+  `member_sid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `product_rating`
+--
+
+INSERT INTO `product_rating` (`sid`, `rating`, `product_name_sid`, `member_sid`) VALUES
+(1, 5, 1, 1),
+(2, 4, 1, 2),
+(3, 5, 1, 3),
+(4, 4, 1, 4),
+(5, 4, 1, 5),
+(6, 5, 1, 6),
+(7, 4, 1, 7),
+(8, 5, 1, 8),
+(9, 5, 1, 9),
+(10, 5, 1, 10);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `product_size`
+--
+
+DROP TABLE IF EXISTS `product_size`;
+CREATE TABLE `product_size` (
+  `sid` int(19) NOT NULL,
+  `size` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `product_size`
+--
+
+INSERT INTO `product_size` (`sid`, `size`) VALUES
+(1, 'S'),
+(2, 'M'),
+(3, 'L'),
+(4, 'XL'),
+(5, '2XL'),
+(6, '3XL');
+
+--
+-- 已傾印資料表的索引
+--
+
+--
+-- 資料表索引 `product_color`
+--
+ALTER TABLE `product_color`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- 資料表索引 `product_comment`
+--
+ALTER TABLE `product_comment`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- 資料表索引 `product_description`
+--
+ALTER TABLE `product_description`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- 資料表索引 `product_rating`
+--
+ALTER TABLE `product_rating`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- 資料表索引 `product_size`
+--
+ALTER TABLE `product_size`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
+--
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `product_color`
+--
+ALTER TABLE `product_color`
+  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `product_comment`
+--
+ALTER TABLE `product_comment`
+  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `product_description`
+--
+ALTER TABLE `product_description`
+  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `product_rating`
+--
+ALTER TABLE `product_rating`
+  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `product_size`
+--
+ALTER TABLE `product_size`
+  MODIFY `sid` int(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
