@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 02, 2023 at 03:52 AM
+-- Generation Time: Aug 02, 2023 at 07:46 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -56,18 +56,34 @@ CREATE TABLE `order_detail` (
   `order_sid` int(255) NOT NULL,
   `member_sid` int(255) NOT NULL,
   `prduct_type_sid` int(255) NOT NULL,
-  `item_sid` varchar(255) NOT NULL,
-  `price` int(255) NOT NULL,
+  `item_sid` int(255) NOT NULL,
   `quantity` int(255) NOT NULL,
-  `amount` varchar(255) NOT NULL
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `order_detail`
 --
 
-INSERT INTO `order_detail` (`sid`, `order_sid`, `member_sid`, `prduct_type_sid`, `item_sid`, `price`, `quantity`, `amount`) VALUES
-(1, 11, 538, 1, '7', 2000, 1, '2000');
+INSERT INTO `order_detail` (`sid`, `order_sid`, `member_sid`, `prduct_type_sid`, `item_sid`, `quantity`, `created_at`) VALUES
+(19, 6, 5, 1, 1, 1, '2023-08-02'),
+(20, 6, 5, 2, 1, 13, '2023-08-02'),
+(21, 6, 5, 4, 2, 1, '2023-08-02'),
+(22, 7, 5, 4, 2, 1, '2023-08-02'),
+(23, 7, 5, 2, 1, 13, '2023-08-02'),
+(24, 7, 5, 1, 1, 1, '2023-08-02'),
+(25, 8, 5, 2, 1, 13, '2023-08-02'),
+(26, 8, 5, 4, 2, 1, '2023-08-02'),
+(27, 8, 5, 1, 1, 1, '2023-08-02'),
+(28, 9, 5, 4, 2, 1, '2023-08-02'),
+(29, 9, 5, 2, 1, 13, '2023-08-02'),
+(30, 9, 5, 1, 1, 1, '2023-08-02'),
+(31, 10, 5, 2, 1, 13, '2023-08-02'),
+(32, 10, 5, 4, 2, 1, '2023-08-02'),
+(33, 10, 5, 1, 1, 1, '2023-08-02'),
+(34, 10, 5, 1, 1, 1, '2023-08-02'),
+(35, 10, 5, 2, 1, 13, '2023-08-02'),
+(36, 10, 5, 4, 2, 1, '2023-08-02');
 
 -- --------------------------------------------------------
 
@@ -82,19 +98,25 @@ CREATE TABLE `order_main` (
   `amount` int(11) NOT NULL,
   `buy_time` datetime NOT NULL,
   `pay_time` datetime DEFAULT NULL,
-  `method_sid` int(11) NOT NULL,
-  `payment` int(1) DEFAULT NULL
+  `method_sid` int(11) DEFAULT NULL,
+  `payment` int(1) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `order_main`
 --
 
-INSERT INTO `order_main` (`sid`, `member_sid`, `member_coupon_relation_sid`, `amount`, `buy_time`, `pay_time`, `method_sid`, `payment`) VALUES
-(1, 5, NULL, 1, '2023-08-02 03:51:28', NULL, 1, NULL),
-(2, 5, NULL, 3, '2023-08-02 03:51:35', NULL, 3, NULL),
-(3, 5, NULL, 2, '2023-08-02 03:51:40', NULL, 1, NULL),
-(4, 5, NULL, 55, '2023-08-02 03:51:46', NULL, 2, NULL);
+INSERT INTO `order_main` (`sid`, `member_sid`, `member_coupon_relation_sid`, `amount`, `buy_time`, `pay_time`, `method_sid`, `payment`, `name`, `address`, `phone`, `email`) VALUES
+(6, 5, NULL, 3, '2023-08-02 15:43:41', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 5, NULL, 3, '2023-08-02 15:43:42', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 5, NULL, 3, '2023-08-02 15:43:43', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 5, NULL, 3, '2023-08-02 15:43:44', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 5, NULL, 3, '2023-08-02 15:45:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 5, NULL, 3, '2023-08-02 15:45:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -168,6 +190,12 @@ ALTER TABLE `order_cart`
   ADD PRIMARY KEY (`sid`);
 
 --
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- Indexes for table `order_main`
 --
 ALTER TABLE `order_main`
@@ -190,10 +218,16 @@ ALTER TABLE `order_cart`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
+-- AUTO_INCREMENT for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `sid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
 -- AUTO_INCREMENT for table `order_main`
 --
 ALTER TABLE `order_main`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `order_product_type`
