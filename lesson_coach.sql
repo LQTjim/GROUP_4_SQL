@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 02, 2023 at 11:50 AM
+-- Generation Time: Aug 07, 2023 at 10:04 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `c_l_category`
 --
 
+DROP TABLE IF EXISTS `c_l_category`;
 CREATE TABLE `c_l_category` (
   `sid` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
@@ -62,9 +63,77 @@ INSERT INTO `c_l_category` (`sid`, `name`, `description`, `img`, `img_base64`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `c_l_certification`
+--
+
+DROP TABLE IF EXISTS `c_l_certification`;
+CREATE TABLE `c_l_certification` (
+  `sid` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `c_l_certification`
+--
+
+INSERT INTO `c_l_certification` (`sid`, `name`) VALUES
+(17, 'ACE-CPT 私人教練證照'),
+(18, 'ACE-GFI 團課教練證照'),
+(19, 'ACE-HC 健康教練證照'),
+(20, 'ACE-MES 醫學運動專家'),
+(4, 'ACSM-CEP 醫療運動生理師'),
+(1, 'ACSM-CPT 私人教練證照'),
+(3, 'ACSM-EPC 運動生理學家證照'),
+(2, 'ACSM-GEI 團課教練證照'),
+(5, 'ACSM-RCEP 註冊醫療運動生理師'),
+(23, 'AFAA-FDI國際體適能有氧舞蹈指導員'),
+(26, 'AFAA-KB拳擊體適能'),
+(24, 'AFAA-MAT墊上核心訓練'),
+(21, 'AFAA-PFT個人體適能顧問'),
+(25, 'AFAA-STEP階梯有氧'),
+(22, 'AFAA-WT重量訓練'),
+(45, 'FTC功能訓練師'),
+(48, 'GTC團體訓練師'),
+(13, 'NASM-CES 矯正運動專家'),
+(16, 'NASM-CNC 營養教練認證'),
+(11, 'NASM-CPT 私人教練證照'),
+(12, 'NASM-PES 表現提升專家'),
+(15, 'NASM-SFS 銀髮族訓練專家'),
+(14, 'NASM-YES 青少年體能訓練專家'),
+(41, 'NCSF-CPT 私人教練認證'),
+(42, 'NCSF-CSC 肌力教練証認'),
+(43, 'NCSF-SNS 運動營養專家'),
+(10, 'NSCA-CPSS 運動表現科學家'),
+(6, 'NSCA-CPT 私人教練證照'),
+(7, 'NSCA-CSCS 肌力與體能訓練專家'),
+(8, 'NSCA-CSPS 特殊族群訓練專家'),
+(9, 'NSCA-TSAC 戰術肌力與體能訓練師'),
+(37, 'PTAG-CPT 私人教練認證'),
+(39, 'PTAG-ESM Lv1 情緒與壓力管理Lv1'),
+(36, 'PTAG-Foundation 基礎課程'),
+(38, 'PTAG-Mentorship Lv1 引導力Lv1'),
+(40, 'PTAG-Mentorship Lv2 引導力Lv2'),
+(46, 'RTC彈力棍訓練師'),
+(49, 'SMSTC運動醫學懸吊訓練師'),
+(44, 'STC懸吊訓練師'),
+(47, 'YOGA瑜珈'),
+(30, 'Zumba-AQUA'),
+(27, 'Zumba-Basic1&2'),
+(28, 'Zumba-Gold'),
+(34, 'Zumba-JamSession'),
+(29, 'Zumba-Kids+Kids Jr.'),
+(33, 'Zumba-Pro Skills'),
+(31, 'Zumba-Step'),
+(35, 'Zumba-Strong'),
+(32, 'Zumba-TONING');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `c_l_coachs`
 --
 
+DROP TABLE IF EXISTS `c_l_coachs`;
 CREATE TABLE `c_l_coachs` (
   `sid` int(11) NOT NULL,
   `member_sid` int(11) NOT NULL,
@@ -113,6 +182,7 @@ INSERT INTO `c_l_coachs` (`sid`, `member_sid`, `nickname`, `introduction`, `loca
 -- Table structure for table `c_l_lessons`
 --
 
+DROP TABLE IF EXISTS `c_l_lessons`;
 CREATE TABLE `c_l_lessons` (
   `sid` int(11) NOT NULL,
   `name` varchar(256) NOT NULL,
@@ -435,6 +505,7 @@ INSERT INTO `c_l_lessons` (`sid`, `name`, `category_sid`, `coach_sid`, `location
 -- Table structure for table `c_l_location`
 --
 
+DROP TABLE IF EXISTS `c_l_location`;
 CREATE TABLE `c_l_location` (
   `sid` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
@@ -452,9 +523,79 @@ INSERT INTO `c_l_location` (`sid`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `c_l_rela_coach_certification`
+--
+
+DROP TABLE IF EXISTS `c_l_rela_coach_certification`;
+CREATE TABLE `c_l_rela_coach_certification` (
+  `sid` int(11) NOT NULL,
+  `coach_sid` int(11) NOT NULL,
+  `certification_sid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `c_l_rela_coach_certification`
+--
+
+INSERT INTO `c_l_rela_coach_certification` (`sid`, `coach_sid`, `certification_sid`) VALUES
+(60, 1, 1),
+(61, 1, 2),
+(106, 1, 3),
+(63, 1, 4),
+(94, 2, 2),
+(92, 2, 3),
+(91, 2, 5),
+(93, 2, 6),
+(95, 2, 24),
+(90, 3, 21),
+(89, 3, 22),
+(88, 3, 26),
+(87, 3, 36),
+(37, 4, 1),
+(38, 4, 35),
+(4, 5, 1),
+(84, 5, 6),
+(86, 5, 42),
+(85, 5, 44),
+(68, 6, 39),
+(67, 6, 40),
+(66, 6, 41),
+(64, 6, 47),
+(65, 6, 49),
+(69, 7, 3),
+(70, 7, 26),
+(76, 7, 30),
+(72, 7, 41),
+(71, 7, 43),
+(73, 7, 44),
+(75, 7, 45),
+(74, 7, 48),
+(77, 8, 36),
+(78, 8, 38),
+(79, 8, 41),
+(80, 8, 43),
+(83, 8, 47),
+(81, 8, 48),
+(82, 8, 49),
+(112, 10, 1),
+(105, 11, 2),
+(104, 11, 3),
+(108, 13, 1),
+(107, 13, 4),
+(115, 17, 7),
+(116, 17, 8),
+(114, 18, 1),
+(113, 18, 4),
+(118, 19, 4),
+(117, 19, 20);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `c_l_rela_lesson_tag`
 --
 
+DROP TABLE IF EXISTS `c_l_rela_lesson_tag`;
 CREATE TABLE `c_l_rela_lesson_tag` (
   `sid` int(11) NOT NULL,
   `lesson_sid` int(11) NOT NULL,
@@ -672,6 +813,7 @@ INSERT INTO `c_l_rela_lesson_tag` (`sid`, `lesson_sid`, `tag_sid`) VALUES
 -- Table structure for table `c_l_tags`
 --
 
+DROP TABLE IF EXISTS `c_l_tags`;
 CREATE TABLE `c_l_tags` (
   `sid` int(11) NOT NULL,
   `name` varchar(16) NOT NULL,
@@ -722,6 +864,13 @@ ALTER TABLE `c_l_category`
   ADD PRIMARY KEY (`sid`);
 
 --
+-- Indexes for table `c_l_certification`
+--
+ALTER TABLE `c_l_certification`
+  ADD PRIMARY KEY (`sid`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
 -- Indexes for table `c_l_coachs`
 --
 ALTER TABLE `c_l_coachs`
@@ -742,6 +891,15 @@ ALTER TABLE `c_l_lessons`
 --
 ALTER TABLE `c_l_location`
   ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `c_l_rela_coach_certification`
+--
+ALTER TABLE `c_l_rela_coach_certification`
+  ADD PRIMARY KEY (`sid`),
+  ADD UNIQUE KEY `coach_sid_2` (`coach_sid`,`certification_sid`),
+  ADD KEY `coach_sid` (`coach_sid`),
+  ADD KEY `certification_sid` (`certification_sid`);
 
 --
 -- Indexes for table `c_l_rela_lesson_tag`
@@ -769,6 +927,12 @@ ALTER TABLE `c_l_category`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT for table `c_l_certification`
+--
+ALTER TABLE `c_l_certification`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
 -- AUTO_INCREMENT for table `c_l_coachs`
 --
 ALTER TABLE `c_l_coachs`
@@ -787,6 +951,12 @@ ALTER TABLE `c_l_location`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `c_l_rela_coach_certification`
+--
+ALTER TABLE `c_l_rela_coach_certification`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+
+--
 -- AUTO_INCREMENT for table `c_l_rela_lesson_tag`
 --
 ALTER TABLE `c_l_rela_lesson_tag`
@@ -797,6 +967,16 @@ ALTER TABLE `c_l_rela_lesson_tag`
 --
 ALTER TABLE `c_l_tags`
   MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `c_l_rela_coach_certification`
+--
+ALTER TABLE `c_l_rela_coach_certification`
+  ADD CONSTRAINT `c_l_rela_coach_certification_ibfk_2` FOREIGN KEY (`certification_sid`) REFERENCES `c_l_certification` (`sid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
