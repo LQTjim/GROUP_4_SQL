@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 10, 2023 at 07:49 AM
+-- Generation Time: Aug 10, 2023 at 08:09 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -37,6 +37,11 @@ CREATE TABLE `order_cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Truncate table before insert `order_cart`
+--
+
+TRUNCATE TABLE `order_cart`;
+--
 -- Dumping data for table `order_cart`
 --
 
@@ -56,6 +61,11 @@ CREATE TABLE `order_delivery_method` (
   `method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncate table before insert `order_delivery_method`
+--
+
+TRUNCATE TABLE `order_delivery_method`;
 --
 -- Dumping data for table `order_delivery_method`
 --
@@ -81,6 +91,11 @@ CREATE TABLE `order_detail` (
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Truncate table before insert `order_detail`
+--
+
+TRUNCATE TABLE `order_detail`;
 --
 -- Dumping data for table `order_detail`
 --
@@ -216,6 +231,11 @@ CREATE TABLE `order_main` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Truncate table before insert `order_main`
+--
+
+TRUNCATE TABLE `order_main`;
+--
 -- Dumping data for table `order_main`
 --
 
@@ -240,7 +260,6 @@ INSERT INTO `order_main` (`sid`, `member_sid`, `amount`, `buy_time`, `pay_time`,
 (108, 5, 3, '2023-08-10 12:20:59', NULL, NULL, NULL, NULL, NULL, NULL),
 (109, 5, 3, '2023-08-10 12:21:00', NULL, 5, '林咖波', '台北市北投區復興二路29號', '0918768068', 'mail62055@test.com'),
 (110, 5, 3, '2023-08-10 12:21:31', NULL, 1, '林咖波', '台北市北投區復興二路29號', '0918768068', 'mail62055@test.com'),
-(111, 5, 3, '2023-08-10 12:22:54', NULL, 1, 'ryyyctre5687678hbbn   j876', '自強路二段33巷12號4樓', '0935255616', 'messianic99@gmail.com'),
 (112, 5, 3, '2023-08-10 12:23:57', NULL, NULL, NULL, NULL, NULL, NULL),
 (113, 5, 3, '2023-08-10 12:24:02', NULL, NULL, NULL, NULL, NULL, NULL),
 (114, 5, 3, '2023-08-10 12:24:12', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -266,6 +285,11 @@ CREATE TABLE `order_method` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Truncate table before insert `order_method`
+--
+
+TRUNCATE TABLE `order_method`;
+--
 -- Dumping data for table `order_method`
 --
 
@@ -288,6 +312,11 @@ CREATE TABLE `order_payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Truncate table before insert `order_payment`
+--
+
+TRUNCATE TABLE `order_payment`;
+--
 -- Dumping data for table `order_payment`
 --
 
@@ -305,6 +334,11 @@ CREATE TABLE `order_product_type` (
   `product_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Truncate table before insert `order_product_type`
+--
+
+TRUNCATE TABLE `order_product_type`;
 --
 -- Dumping data for table `order_product_type`
 --
