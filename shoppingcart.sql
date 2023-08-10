@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 10, 2023 at 08:09 AM
+-- Generation Time: Aug 10, 2023 at 08:11 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `order_cart`
 --
 
+DROP TABLE IF EXISTS `order_cart`;
 CREATE TABLE `order_cart` (
   `sid` int(11) NOT NULL,
   `member_sid` int(11) NOT NULL,
@@ -36,11 +37,6 @@ CREATE TABLE `order_cart` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Truncate table before insert `order_cart`
---
-
-TRUNCATE TABLE `order_cart`;
 --
 -- Dumping data for table `order_cart`
 --
@@ -56,16 +52,12 @@ INSERT INTO `order_cart` (`sid`, `member_sid`, `products_type_sid`, `item_sid`, 
 -- Table structure for table `order_delivery_method`
 --
 
+DROP TABLE IF EXISTS `order_delivery_method`;
 CREATE TABLE `order_delivery_method` (
   `sid` int(11) NOT NULL,
   `method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Truncate table before insert `order_delivery_method`
---
-
-TRUNCATE TABLE `order_delivery_method`;
 --
 -- Dumping data for table `order_delivery_method`
 --
@@ -81,6 +73,7 @@ INSERT INTO `order_delivery_method` (`sid`, `method`) VALUES
 -- Table structure for table `order_detail`
 --
 
+DROP TABLE IF EXISTS `order_detail`;
 CREATE TABLE `order_detail` (
   `sid` int(255) NOT NULL,
   `order_sid` int(255) NOT NULL,
@@ -91,11 +84,6 @@ CREATE TABLE `order_detail` (
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncate table before insert `order_detail`
---
-
-TRUNCATE TABLE `order_detail`;
 --
 -- Dumping data for table `order_detail`
 --
@@ -217,6 +205,7 @@ INSERT INTO `order_detail` (`sid`, `order_sid`, `member_sid`, `products_type_sid
 -- Table structure for table `order_main`
 --
 
+DROP TABLE IF EXISTS `order_main`;
 CREATE TABLE `order_main` (
   `sid` int(11) NOT NULL,
   `member_sid` int(11) NOT NULL,
@@ -230,11 +219,6 @@ CREATE TABLE `order_main` (
   `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncate table before insert `order_main`
---
-
-TRUNCATE TABLE `order_main`;
 --
 -- Dumping data for table `order_main`
 --
@@ -279,16 +263,12 @@ INSERT INTO `order_main` (`sid`, `member_sid`, `amount`, `buy_time`, `pay_time`,
 -- Table structure for table `order_method`
 --
 
+DROP TABLE IF EXISTS `order_method`;
 CREATE TABLE `order_method` (
   `sid` int(11) NOT NULL,
   `Method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncate table before insert `order_method`
---
-
-TRUNCATE TABLE `order_method`;
 --
 -- Dumping data for table `order_method`
 --
@@ -306,16 +286,12 @@ INSERT INTO `order_method` (`sid`, `Method`) VALUES
 -- Table structure for table `order_payment`
 --
 
+DROP TABLE IF EXISTS `order_payment`;
 CREATE TABLE `order_payment` (
   `sid` int(11) NOT NULL,
   `payment` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Truncate table before insert `order_payment`
---
-
-TRUNCATE TABLE `order_payment`;
 --
 -- Dumping data for table `order_payment`
 --
@@ -329,16 +305,12 @@ INSERT INTO `order_payment` (`sid`, `payment`) VALUES
 -- Table structure for table `order_product_type`
 --
 
+DROP TABLE IF EXISTS `order_product_type`;
 CREATE TABLE `order_product_type` (
   `sid` int(11) NOT NULL,
   `product_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Truncate table before insert `order_product_type`
---
-
-TRUNCATE TABLE `order_product_type`;
 --
 -- Dumping data for table `order_product_type`
 --
